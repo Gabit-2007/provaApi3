@@ -4,7 +4,7 @@ import mysql from 'mysql2/promise'
 let connection = await mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'Admin@123',
+  password: '1234',
   database: 'chatDB'
 })
 

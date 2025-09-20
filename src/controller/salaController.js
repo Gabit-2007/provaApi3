@@ -9,7 +9,13 @@ const autenticador = getAuthentication();
 
 
 endpoints.post('/sala', autenticador, async (req, resp) => {
-    
+    let usuarioId = req.user.id;
+    let nome = req.body.nome;
+
+    let salaId = await salaRepo.inserirSala(nome, usuarioId);
+    let salaPermissao = await salaPermissaoRepo.inserirPermissao(salaId, usuarioId, true)
+
+    resp.send(salaPermissao);
 });
 
 
